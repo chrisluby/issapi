@@ -1,6 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
+fetch('http://api.open-notify.org/iss-now.json')
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => console.error(`Error fetching data: ${error.message}`));
+
+
+
 function App() {
   return (
     <div className="App">
