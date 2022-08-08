@@ -12,10 +12,16 @@ import './App.css';
 // //console.info(resp)
 
 
-function getData() {
-  let url = 'http://api.open-notify.org/iss-now.json';
-  let res = fetch(url)
-  return res
+async function getData() {
+  let url = 'https://api.wheretheiss.at/v1/satellites/25544';
+  try {
+    let res = fetch(url)
+    return (await res).json()
+  } 
+  catch(error) {
+    console.log(error)
+  }
+ 
 }
 
 let data = getData()
