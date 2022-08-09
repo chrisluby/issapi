@@ -1,31 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 
-// let data = fetch('http://api.open-notify.org/iss-now.json')
-//   .then((response) => response.json())
-//   .then((json) => (resp = json))
-//   .catch((error) => console.error(`Error fetching data: ${error.message}`));
 
-// let resp = (data)
+fetch('https://api.wheretheiss.at/v1/satellites/25544')       
+  .then((response) => {
+    console.log(response.status)
+    return response.json()
+  })
+  .then(data => console.log(data))   //must be inside above {} if no return
+ .catch(e => console.log('error', e))
 
-// console.log(resp)
-// //console.info(resp)
-
-
-async function getData() {
-  let url = 'https://api.wheretheiss.at/v1/satellites/25544';
-  try {
-    let res = fetch(url)
-    return (await res).json()
-  } 
-  catch(error) {
-    console.log(error)
-  }
  
-}
 
-let data = getData()
-console.log(data)
+//   function requestPromise(url){
+//     return new Promise((resolve, reject) => {
+
+//     })
+//   }
+
+//   let iss = requestPromise('https://api.wheretheiss.at/v1/satellites/25544')
+//     .then(res => res.json())
+//     .then((data) => console.log(data))
+// console.log(iss)
+
+  
 
 function App() {
   return (
