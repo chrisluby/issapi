@@ -1,12 +1,10 @@
-/* eslint-disable no-useless-constructor */
 
-import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 
 import './App.css';
 
 let ISSDATA;
-let test = fetch('https://api.wheretheiss.at/v1/satellites/25544')       
+fetch('https://api.wheretheiss.at/v1/satellites/25544')       
   .then((response) => {
     console.log(response.status)
     return response.json()
@@ -22,9 +20,14 @@ let test = fetch('https://api.wheretheiss.at/v1/satellites/25544')
 
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
+  // eslint-disable-next-line no-useless-constructor
+  constructor(){
+    super()
+
   }
+//funcs can be written here
+
+
   render() {
     return (  
       <div className="App">
