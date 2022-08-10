@@ -1,47 +1,32 @@
-import logo from './logo.svg';
+
+import React, { Component } from 'react';
+
 import './App.css';
 
-
+let cap;
 fetch('https://api.wheretheiss.at/v1/satellites/25544')       
   .then((response) => {
-    console.log(response.status)
+    console.log(response.status, response)
     return response.json()
   })
-  .then(data => console.log(data))   //must be inside above {} if no return
- .catch(e => console.log('error', e))
+  .then((data) => { cap = data }) //must be inside above {} if no return
+  .catch(e => console.log('error', e))
+ console.log(cap)
 
- 
+ class Long extends Component{
+    // eslint-disable-next-line no-useless-constructor
+    constructor(props){
+      super(props);
 
-//   function requestPromise(url){
-//     return new Promise((resolve, reject) => {
+    }
+    
+  }
 
-//     })
-//   }
-
-//   let iss = requestPromise('https://api.wheretheiss.at/v1/satellites/25544')
-//     .then(res => res.json())
-//     .then((data) => console.log(data))
-// console.log(iss)
-
-  
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {<h1>asd</h1>}
     </div>
   );
 }
