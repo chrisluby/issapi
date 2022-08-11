@@ -13,7 +13,9 @@ fetch('https://api.wheretheiss.at/v1/satellites/25544')
   .catch(e => console.log('error', e))
 
 
-  setTimeout(() => console.log(ISSDATA.latitude) ,150)
+  setTimeout(() => console.log(ISSDATA.latitude) ,1500)
+
+let latitude = ISSDATA.latitude
 
 
 
@@ -21,8 +23,11 @@ fetch('https://api.wheretheiss.at/v1/satellites/25544')
 
 class App extends React.Component {
   // eslint-disable-next-line no-useless-constructor
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+    this.state = {
+      //ISSlatitude: latitude
+    }
 
   }
 //funcs can be written here
@@ -31,7 +36,7 @@ class App extends React.Component {
   render() {
     return (  
       <div className="App">
-    <h1>yo {}</h1>
+    <h1>yo {this.state.ISSlatitude}</h1>
       </div>
     );
   }
